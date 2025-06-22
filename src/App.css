@@ -1,42 +1,85 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: HankenGrotesk;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/src/assets/HankenGrotesk-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  @apply bg-zinc-900 flex flex-col font-[HankenGrotesk] items-center justify-center;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 700px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+header {
+  @apply m-10;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h1 {
+  @apply text-zinc-200 text-center text-4xl m-2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header h2 {
+  @apply text-zinc-400 text-center text-xl;
 }
 
-.card {
-  padding: 2em;
+.notification {
+  @apply h-10;
 }
 
-.read-the-docs {
-  color: #888;
+.health-bar {
+  @apply flex flex-row-reverse flex-nowrap justify-center m-10;
+}
+
+.food-item-container {
+  @apply bg-zinc-800 w-10 h-10 m-0.5 flex justify-center items-center text-2xl;
+}
+
+.letters {
+  @apply flex flex-row flex-nowrap justify-center m-10;
+}
+
+.letter-item-container {
+  @apply bg-zinc-800 w-10 h-10 m-0.5 flex justify-center items-center text-2xl border-zinc-400 border-b text-zinc-200;
+}
+
+.board {
+  @apply flex flex-row flex-wrap justify-center m-10;
+}
+
+.board.disabled {
+  @apply opacity-50;
+}
+
+.board-item-container {
+  @apply bg-amber-400 w-10 h-10 m-1 flex justify-center items-center text-lg rounded-sm hover:cursor-pointer;
+}
+
+.board-item-container.correct {
+  @apply bg-green-700 hover:cursor-not-allowed;
+}
+
+.board-item-container.incorrect {
+  @apply bg-red-700 hover:cursor-not-allowed;
+}
+
+.board.disabled .board-item-container {
+  @apply hover:cursor-not-allowed;
+}
+
+.notification {
+  @apply text-center text-lg text-zinc-200;
+}
+
+.game-over {
+  @apply flex justify-center;
+}
+
+.game-over button {
+  @apply bg-sky-800 text-lg text-zinc-200 p-2 pl-10 pr-10 rounded-sm text-center hover:cursor-pointer;
 }
